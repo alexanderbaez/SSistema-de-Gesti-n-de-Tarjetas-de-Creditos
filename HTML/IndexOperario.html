@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Panel Clientes - Banco</title>
+    <link rel="stylesheet" href="../CSS/stylesFormato.css" type="text/css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+    <script src="../JAVASCRIPT/controladorItems.js" defer></script>
+</head>
+
+<body>
+    <!-- cabecera de bienvenida y cierre de sesion -->
+    <header class="header">
+        <div class="header-left">
+            <span class="welcome-msg">Bienvenido, Operario Juan Pérez</span>
+        </div>
+        <div class="header-right">
+            <button class="logout-btn" onclick="location.href='../HTML/presentacion.html'">
+                <span class="icon">🔒</span> Cerrar sesión
+            </button>
+        </div>
+    </header>
+
+    <div class="container">
+        <!-- Panel lateral -->
+        <aside class="sidebar">
+            <h1 class="logo"><i class="fas fa-university"></i> BANCO</h1>
+            <nav class="menu">
+                <a href="#" class="menu-item active" data-target="item-clientes">
+                    <span class="icon">👤</span> Clientes
+                </a>
+                <a href="#" class="menu-item" data-target="item-cuentas">
+                    <span class="icon">💳</span> Cuentas
+                </a>
+                <a href="#" class="menu-item" data-target="item-resumenes">
+                    <span class="icon">📄</span> Resúmenes
+                </a>
+            </nav>
+        </aside>
+
+        <!-- secciones de formularios-->
+        <main class="content">
+
+            <!-- clientes -->
+            <section class="form-section" id="item-clientes">
+                <h2>Registrar Clientes</h2>
+                <form class="form" id="fomr-Clientes">
+                    <label for="nombre">Nombre</label>
+                    <input type="text" id="nombre" name="nombre" placeholder="Ingrese nombre">
+                    <span class="error-msg" id="error-nombre"></span>
+
+                    <label for="apellido">Apellido</label>
+                    <input type="text" id="apellido" name="apellido" placeholder="Ingrese apellido">
+                    <span class="error-msg" id="error-apellido"></span>
+
+                    <label for="dni">DNI</label>
+                    <input type="text" id="dni" name="dni" maxlength="8" placeholder="Ingrese DNI">
+                    <span class="error-msg" id="error-dni"></span>
+
+                    <label for="fecha">Fecha de nacimiento</label>
+                    <input type="date" id="fecha" name="fecha">
+                    <span class="error-msg" id="error-fecha"></span>
+
+                    <label for="telefono">Teléfono</label>
+                    <input type="tel" id="telefono" name="telefono" placeholder="Ingrese teléfono">
+                    <span class="error-msg" id="error-telefono"></span>
+
+                    <label for="correo">Correo electrónico</label>
+                    <input type="email" id="correo" name="correo" placeholder="Ingrese correo">
+                    <span class="error-msg" id="error-correo"></span>
+
+                    <button type="submit" class="btn">Guardar</button>
+                </form>
+            </section>
+
+
+            <!-- cuentas -->
+            <section class="form-section" id="item-cuentas" style="display: none;">
+                <h2>Cuentas</h2>
+                <main class="main-content">
+
+                    <div class="top-bar">
+                        <button class="btn" onclick="mostrarFormularioCuenta()">Agregar cuenta</button>
+                    </div>
+
+                    <!-- el fomulario oculto hasta precionar (agregar cuenta) -->
+                    <div id="formContainer" style="display: none;">
+                        <form class="form" id="formCuenta">
+                            <label for="tipoCuenta">Tipo de cuenta</label>
+                            <select id="tipoCuenta" name="tipoCuenta" required>
+                                <option value="" disabled selected>Seleccione tipo de cuenta</option>
+                                <option value="ahorro">Caja de Ahorro</option>
+                                <option value="corriente">Cuenta Corriente</option>
+                            </select>
+
+                            <label for="tipoMoneda">Tipo de moneda</label>
+                            <select id="tipoMoneda" name="tipoMoneda" required>
+                                <option value="" disabled selected>Seleccione moneda</option>
+                                <option value="ars">Pesos (ARS)</option>
+                                <option value="usd">Dólares (USD)</option>
+                            </select>
+
+                            <label for="saldo">Saldo</label>
+                            <input type="number" id="saldo" name="saldo" placeholder="Ingrese saldo inicial" min="0"
+                                step="0.01" required>
+
+                            <button type="submit" class="btn">Guardar</button>
+                        </form>
+                    </div>
+                    <!-- cuenta ya registrada -->
+                    <table class="account-table">
+                        <thead>
+                            <tr>
+                                <th>Tipo de cuenta</th>
+                                <th>Moneda</th>
+                                <th>Saldo</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>Caja de ahorro</td>
+                                <td>Pesos</td>
+                                <td>$10.000,00</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </main>
+            </section>
+
+            <!-- resumenes -->
+            <section class="form-section" id="item-resumenes" style="display: none;">
+                <h2>Carga de Resúmenes y Pagos</h2>
+
+                <!-- formulario registrar resumen -->
+                <div class="form-container">
+                    <h3>Resumen de tarjeta</h3>
+                    <form class="form">
+                        <label for="numeroResumen">Número de resumen</label>
+                        <input type="text" id="numeroResumen" name="numeroResumen"
+                            placeholder="Ingrese número de resumen">
+
+                        <label for="fechaEmision">Fecha de emisión</label>
+                        <input type="date" id="fechaEmision" name="fechaEmision" required>
+
+                        <label for="importeResumen">Importe</label>
+                        <input type="number" id="importeResumen" name="importeResumen" placeholder="Ingrese importe"
+                            min="0" step="0.01">
+
+                        <button type="submit" class="btn">Guardar Resumen</button>
+                    </form>
+                </div>
+
+                <!-- formulario registrar el pago del resumen -->
+                <div class="form-container">
+                    <h3>Pago de tarjeta</h3>
+                    <form class="form">
+                        <label for="fechaPago">Fecha de pago</label>
+                        <input type="date" id="fechaPago" name="fechaPago" required>
+
+                        <label for="medioPago">Medio de pago</label>
+                        <select id="medioPago" name="medioPago">
+                            <option value="" disabled selected>Seleccione medio de pago</option>
+                            <option value="debito">Débito en cuenta</option>
+                            <option value="efectivo">Efectivo</option>
+                            <option value="transferencia">Transferencia bancaria</option>
+                        </select>
+
+                        <button type="submit" class="btn">Guardar Pago</button>
+                    </form>
+                </div>
+            </section>
+        </main>
+    </div>
+</body>
+
+</html>

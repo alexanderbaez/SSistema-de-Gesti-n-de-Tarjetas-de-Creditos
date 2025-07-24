@@ -1,0 +1,289 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: 'Roboto', sans-serif; 
+    background-color: #ffffff;
+    height: 100vh; /*altura de la ventana*/
+    display: flex; 
+    flex-direction: column; 
+}
+
+header {
+    background-color: #ffffff;
+    display: flex; 
+    justify-content: space-between; /*separamos los dos elemento de extremos a extremo*/
+    align-items: center; 
+    padding: 1rem 2rem; /*le damos espacio, de arriba y abajo 1rem. de izq a der 2rem*/
+    border-bottom: 1px solid #cccccc; 
+    border-top-left-radius: 10px; 
+    border-top-right-radius: 10px; 
+    font-family: 'Roboto', sans-serif;
+    position: sticky; /*la cabecera queda fija al hacer scroll*/
+    top: 0; 
+    z-index: 1000; /*aseguramos que este por encia de otros elementos*/
+}
+
+.welcome-msg {
+    font-size: 20px; 
+    font-weight: 600; 
+    color: #000000;
+}
+
+.logout-btn {
+    background-color: #144c9c;
+    color: white; 
+    border: none; 
+    padding: 0.6rem 1rem;
+    font-size: 16px;
+    border-radius: 8px; 
+    cursor: pointer; /*cambiamos el cursor cuando pasamos por el boton*/
+    display: flex; 
+    align-items: center;
+    gap: 0.5rem; /*espacio entre icono y texto*/
+    transition: background-color 0.3 ease; 
+}
+
+.logout-btn:hover {
+    background-color: #103a78;
+}
+
+.logout-btn .icon {
+    font-size: 1rem;
+}
+
+.container {
+    display: flex;
+    width: 100%; /*ocupamos todo el ancha disponible*/
+    flex: 1; /*ocupamos todoe el espacio vertical restante*/
+
+}
+
+.sidebar {
+    width: 250px; /*el ancho fijo para el menu lateral*/
+    background-color: #1f3b67;
+    color: #ffffff;
+    padding: 2rem 1rem;
+    display: flex;
+    flex-direction: column; 
+}
+
+.logo {
+    font-size: 1.8rem;
+    font-weight: 700;
+    padding: 1.5rem;
+    margin-bottom: 1rem; 
+    display: flex;             
+    align-items: center;       
+    justify-content: center;   /* centramos horizontalmente todo el contenido */
+    text-align: center;        
+}
+.logo i {
+    margin-right: 8px; 
+    color: #ccc;    
+    font-size: 1em;  
+}
+
+.menu {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem; /*espacio entre items*/
+}
+
+.menu-item {
+    display: flex; 
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.75rem 1rem;
+    border-radius: 8px;
+    color: #ffffff;
+    text-decoration: none; /*quitamos el subrayado*/
+    transition: background-color 0.2s; 
+}
+
+.menu-item:hover,
+.menu-item.active {
+    background-color: #144c9c;
+}
+
+/*CONTENEDOR PRINCIPAL*/
+.content {
+    display: flex;
+    flex: 1; /*ocupamos todo el espacio restanto del contenedor padre*/
+    justify-content: center; 
+    align-items: center; 
+    padding: 3rem; 
+    overflow-y: auto; /*permite el desplazamiento vertical si el contenido crece*/
+    flex-direction: column;
+    background-color: #eaf4fd;
+}
+
+/*FORMULARIOS*/
+.form-section {
+    background-color: #ffffff;
+    padding: 2rem; 
+    box-shadow: 0 0 12px rgba(0, 0, 0, 0.08); /*le damos sombra a la estructura del formulario*/
+    border-radius: 12px; 
+    max-width: 600px; 
+    width: 100%; 
+    flex-grow: 1;
+}
+.form-container { /*es el contenedor de los dos fomularios de cargar resumenes y pago*/
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    padding: 2rem;
+    margin-bottom: 3rem;
+    background-color: #f9f9f9;
+    box-shadow: 0 0 10px rgba(0,0,0,0.05);
+}
+
+.form-section h2 {
+    font-size: 20px;
+    margin-bottom: 1.5rem; 
+}
+
+.form {
+    display: flex;
+    flex-direction: column;
+}
+
+.form label {
+    margin-top: 1rem; 
+    margin-bottom: 0.5rem; 
+    font-weight: 600; 
+}
+
+.form input {
+    padding: 0.75rem;
+    border-radius: 8px;
+    border: 1px solid #cccccc;
+    font-size: 1rem;
+}
+
+.form input focus { 
+    outline: none; /*quitamos el entorno por defecto al enfocar el input*/
+    border-color: #144c9c;
+}
+
+.btn {
+    margin-top: 2rem; /*separamos el boton del input*/
+    padding: 0.75rem;
+    background-color: #144c9c;
+    color: #ffffff;
+    border: none;
+    border-radius: 8px;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background-color 0.2s;
+}
+
+.btn:hover {
+    background-color: #28a745;
+}
+.top-bar { /*el boton de agregar cuentas*/
+    justify-content: flex-end;
+    display: flex; 
+    margin-bottom: 20px;
+}
+
+.account-table { /*la tabla donde muestra los datos de la cuenta*/
+    width: 100%;
+    border-collapse: collapse;
+    background-color: #ffffff;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05); 
+}
+
+.account-table thead { /*cabdecera del formulario*/
+    background-color: #cccccc;
+}
+
+.account-table th,
+.account-table td {
+    padding: 12px 16px;
+    text-align: left;
+    border-bottom: 1px solid #ddd;
+}
+
+.account-table td:last-child {
+    font-weight: 600; 
+    color: #22577a;
+}
+
+/* validacion del formulario - rol operario*/
+.error-msg {
+    color: red;
+    font-size: 13px;
+    margin-bottom: 10px;
+    display: block;
+}
+
+/*resumenes del cliente*/
+.resumen-card {
+    display: flex;
+    align-items: center;
+    background-color: #f4f7fe;
+    border: 1px solid #dde3f0;
+    padding: 1rem;
+    border-radius: 0.5rem;
+    margin-bottom: 1rem;
+    gap: 1rem;
+}
+
+.resumen-info {
+    flex-grow: 1;
+}
+
+.resumen-info h3 {
+    margin: 0;
+    font-size: 1.1rem;
+}
+
+.resumen-info p {
+    margin: 0.2rem 0;
+}
+
+.fecha {
+    color: #888;
+    font-size: 0.9rem;
+}
+
+.estado {
+    font-weight: bold;
+    font-size: 0.95rem;
+    display: flex;
+    align-items: center;
+    gap: 0.3rem;
+    padding: 0.3rem 0.6rem;
+    border-radius: 0.3rem;
+}
+
+.estado.ok {
+    color: #28a745;
+}
+
+.estado.adeuda {
+    color: #dc3545;
+}
+
+#mensaje p {
+    margin: 0.5rem 0 0;
+    font-size: 1rem;
+}
+
+@media (max-width: 768px) {
+    .container {
+        flex-direction: column;
+    }
+    .sidebar {
+        width: 100%;
+        flex-direction: row;
+        justify-content: space-around;
+    }
+
+    .content {
+        padding: 1rem;
+    }
+}

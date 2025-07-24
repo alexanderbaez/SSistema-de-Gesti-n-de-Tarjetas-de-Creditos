@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Panel - Agente de Ventas</title>
+    <link rel="stylesheet" href="../CSS/stylesFormato.css" type="text/css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <script src="../JAVASCRIPT/controladorItems.js"></script>
+</head>
+
+<body>
+
+    <header class="header">
+        <div class="header-left">
+            <span class="welcome-msg">Bienvenido, Cliente Juan Perez</span>
+        </div>
+        <div class="header-right">
+            <button class="logout-btn" onclick="location.href='../HTML/presentacion.html'">
+                <span class="icon">🔒</span> Cerrar sesión
+            </button>
+        </div>
+    </header>
+
+    <div class="container">
+        <aside class="sidebar">
+            <h1 class="logo"><i class="fas fa-university"></i> BANCO</h1>
+            <nav class="menu">
+                <a href="#" class="menu-item" data-target="item-resumenes">
+                    <span class="icon">📄</span> Resúmenes
+                </a>
+            </nav>
+        </aside>
+
+        <main class="content">
+
+            <!-- SECCION DE RESUMENES -->
+            <section class="form-section" id="item-oculto" >
+                <h2><i class="icono-documento">📄</i> Resúmenes de Cuenta</h2>
+                <p>Aqui puedes encontrar el historial de tus resumens mensuales y verificar si han sido abonado o estan
+                    adeusados.</p>
+
+                <div class="resumen-card resumen-card-pagado">
+                    <div class="resumen-icono">📄</div>
+                    <div class="resumen-info">
+                        <h3>Resumen - Marzo 2025</h3>
+                        <p>Monto: $35.000</p>
+                        <p class="fecha">Fecha de vencimiento: 10/04/2025</p>
+                    </div>
+                    <span class="estado ok">✔️ Pagado</span>
+                </div>
+
+                <div class="resumen-card resumen-card-adeudado">
+                    <div class="resumen-icono">📄</div>
+                    <div class="resumen-info">
+                        <h3>Resumen - Febrero 2025</h3>
+                        <p>Monto: $29.500</p>
+                        <p class="fecha">Fecha de vencimiento: 10/03/2025</p>
+                    </div>
+                    <span class="estado adeuda">⚠️ Adeudado</span>
+                </div>
+
+                <div class="resumen-card resumen-card-pagado">
+                    <div class="resumen-icono">📄</div>
+                    <div class="resumen-info">
+                        <h3>Resumen - Enero 2025</h3>
+                        <p>Monto: $32.000</p>
+                        <p class="fecha">Fecha de vencimiento: 10/02/2025</p>
+                    </div>
+                    <span class="estado ok">✔️ Pagado</span>
+                </div>
+            </section>
+
+        </main>
+    </div>
+
+</body>
+
+</html>

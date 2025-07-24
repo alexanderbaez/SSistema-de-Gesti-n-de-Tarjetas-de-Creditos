@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Panel - Agente de Ventas</title>
+    <link rel="stylesheet" href="../CSS/stylesFormato.css" type="text/css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <script src="../JAVASCRIPT/controladorItems.js" defer></script>
+
+</head>
+
+<body>
+
+    <header class="header">
+        <div class="header-left">
+            <span class="welcome-msg">Bienvenido, Agente de ventas Juan Perez</span>
+        </div>
+
+        <div class="header-right">
+            <button class="logout-btn" onclick="location.href='../HTML/presentacion.html'">
+                <span class="icon">🔒</span> Cerrar sesión
+            </button>
+        </div>
+    </header>
+
+    <div class="container">
+        <aside class="sidebar">
+            <h1 class="logo"><i class="fas fa-university"></i> BANCO</h1>
+            <nav class="menu">
+                <a href="#" class="menu-item active" data-target="item-verificacion">
+                    <span class="icon">✅</span> Verificar Cliente
+                </a>
+
+            </nav>
+        </aside>
+
+        <main class="content">
+
+            <!-- seccion verificacion -->
+            <section class="form-section" id="item-verificacion">
+                <h2>Verificar Cliente</h2>
+
+                <form id="verificarForm" class="form">
+                    <label for="dni">DNI del Cliente</label><br>
+                    <input type="text" id="dni" name="dni" placeholder="Ingrese su DNI"><br>
+                    <button type="submit" class="btn">Verificar</button>
+                </form>
+
+                <!-- mensajes de resultado de cada campo -->
+                <div id="mensaje" style="margin-top: 1rem;"></div>
+            </section>
+
+            <!-- seccion otorgamiento (la ocultamos inicialmente) -->
+            <section class="form-section" id="item-otorgamiento" style="display: none;">
+                <h2>Otorgamiento de Tarjeta</h2>
+
+                <form class="form">
+                    <label for="numTarjeta">Número de la Tarjeta</label>
+                    <input type="number" id="numTarjeta" name="numTarjeta" placeholder="Ingrese número de tarjeta"
+                        max="9999999999999999">
+
+                    <label for="caducidad">Fecha de caducidad</label>
+                    <input type="month" id="caducidad" name="caducidad">
+
+                    <label for="codigo">Código de Seguridad</label>
+                    <input type="number" id="codigo" name="codigo" placeholder="Ingrese código de seguridad" max="999">
+
+                    <label for="dniOtorgamiento">DNI del Cliente</label>
+                    <input type="number" name="dni" id="dniOtorgamiento" placeholder="Ingrese su DNI" max="99999999">
+
+                    <button type="submit" class="btn">Registrar Tarjeta</button>
+                </form>
+            </section>
+
+        </main>
+    </div>
+
+</body>
+
+</html>

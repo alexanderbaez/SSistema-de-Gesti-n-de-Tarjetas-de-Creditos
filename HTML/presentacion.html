@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8"> 
+    <meta name="viewport" content="width=device-width, initial-scale=1"> 
+    <title>Sistema de Gestión de Tarjetas</title> 
+    <link rel="stylesheet" href="../CSS/styles.css" type="text/css"> 
+</head>
+
+<body>
+
+    <div class="container">
+
+        <div class="card">
+            <h1><span class="icon">💳</span> Sistema de Gestión de Tarjetas de Creditos</h1>
+            <p class="subtitle">Bienvenido al sistema digital del banco. Seleccione su rol para ingresar:</p>
+            <div class="roles">
+
+                <div class="role" onclick="location.href='../HTML/IndexOperario.html'">
+                    <img src="https://cdn-icons-png.flaticon.com/512/921/921347.png" alt="Operario" />
+                    <h2>Operario del Banco</h2>
+                    <p>Acceso para gestionar clientes, cuentas y resúmenes.</p>
+                </div>
+
+                <div class="role" onclick="location.href='../HTML/indexAgente.html'">
+                    <img src="https://cdn-icons-png.flaticon.com/512/921/921347.png" alt="Agente" />
+                    <h2>Agente de Ventas</h2>
+                    <p> Verificación de cliente y otorgamiento de tarjetas.</p>
+                </div>
+
+                <div class="role" onclick="location.href='../HTML/loginCliente.html'">
+                    <img src="https://cdn-icons-png.flaticon.com/512/921/921347.png" alt="Cliente" />
+                    <h2>Cliente del Banco</h2>
+                    <p>Consulta de resúmenes de su tarjeta.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
